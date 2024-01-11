@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { clippingParents } from '@popperjs/core';
 
 @Component({
   selector: 'app-root',
@@ -25,17 +26,33 @@ export class AppComponent {
   setEmpForm(){
     this.emplooyeForm =this._fb.group({
       id:[0],
-      department: [0, Validators.required],
-      empName: [0, Validators.required],
-      mobile: [0, Validators.required],
-      gender: [0, Validators.required],
-      joinDate: [0, Validators.required],
-      email: [0, Validators.required],
-      salary: [0, Validators.required],
-      password: [0, Validators.required],
-      confirmPass: [0, Validators.required],
+      department: ["", Validators.required],
+      empName: ["", Validators.required],
+      mobile: ["", Validators.required],
+      gender: ["", Validators.required],
+      joinDate: ["", Validators.required],
+      email: ["", Validators.required],
+      salary: ["", Validators.required],
+      password: ["", Validators.required],
+      confirmPass: ["", Validators.required],
       empStatus: [false, Validators.requiredTrue]
       
     })
+  }
+
+  formSubmit(){
+    console.log(this.emplooyeForm.value);
+  }
+
+  get f(){
+   return this.emplooyeForm.controls;
+  }
+
+  resetBtn(){
+    this.emplooyeForm.reset();
+  }
+
+  cancelBtn(){
+    this.emplooyeForm.reset();
   }
 }
