@@ -1,7 +1,7 @@
 <div class="card ">
   <div class="card-header bg-info "><h6>Employ Registration</h6></div>
   <div class="card-body">
-    <form>
+    <form [formGroup]="emplooyeForm">
       <div class="row mb-2 ">
         <div class="form-group col ">
           <label >Department</label>
@@ -97,7 +97,7 @@
             <th>Gender</th>
             <th>Joining Date</th>
             <th>Email</th>
-            <th>Action</th>
+            <th class="text-center ">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -106,8 +106,13 @@
             <td>Asad</td>
             <td>03007227838</td>
             <td>Male</td>
-            <td>asad123gmail.com</td>
-            <td><button>Edit</button> <button>Detail</button></td>
+            <td>01-01-2024</td>
+            <td>asad123&#64;gmail.com</td>
+            <td class="text-center ">
+            <i class="fa fa-edit text-primary me-3"></i>
+            <i class="fa fa-info text-info me-3 "></i>
+            <i class="fa fa-trash-o text-danger "></i>
+          </td>
           </tr>
         </tbody>
       </table>
