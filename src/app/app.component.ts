@@ -1,24 +1,49 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { clippingParents } from '@popperjs/core';
+import { EmplooyeDataService } from './Services/emplooye-data.service';
+import {empVM} from '../Models/Models';
+
+
+
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,ReactiveFormsModule],
+  imports: [CommonModule,RouterOutlet,ReactiveFormsModule,NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'HR-Managment';
+visible:boolean=true;
+changetype:boolean=true;
+
+visibleTwo:boolean=true;
+changetypeTwo:boolean=true;
+
+toggleEyeTwo(){
+  this.visibleTwo= !this.visibleTwo;
+  this.changetypeTwo= !this.changetypeTwo;
+}
+
+
+toggleEye(){
+  this.visible= !this.visible;
+  this.changetype= !this.changetype;
+}
+
   emplooyeForm: FormGroup = new FormGroup({});
-
-  constructor( private _fb: FormBuilder){
-
-  }
   
+    users:empVM[];
+   constructor( private _fb: FormBuilder, private empData:EmplooyeDataService){
+    this.users=empData.emplooyes();
+    
+  }
+
   ngOnInit(){
  this.setEmpForm();
   }
@@ -41,7 +66,8 @@ export class AppComponent {
   }
 
   formSubmit(){
-    console.log(this.emplooyeForm.value);
+    this.users.push(this.emplooyeForm.value)
+    console.log(this.users);
   }
 
   get f(){
@@ -55,4 +81,6 @@ export class AppComponent {
   cancelBtn(){
     this.emplooyeForm.reset();
   }
+
+  
 }
