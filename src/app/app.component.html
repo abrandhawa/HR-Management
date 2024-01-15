@@ -11,7 +11,7 @@
           <option value="Manager">Manager</option>
           <option value="Administartor">Administartor</option>
         </select>
-        <div class="alert alert-danger mt-2 " *ngIf="f['department'].invalid && f['department'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['department'].invalid && f['department'].touched">
           <div *ngIf="f['department'].errors && f['department'].errors['required']">
             Department is required!
           </div>
@@ -22,7 +22,7 @@
       <div class="form-group col ">
         <label >Employ Name</label>
         <input type="text" class="form-control"  id="name"  name="empName" formControlName="empName" [class.is-invalid]="f['empName'].invalid && f['empName'].touched">
-        <div class="alert alert-danger mt-2 " *ngIf="f['empName'].invalid && f['empName'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['empName'].invalid && f['empName'].touched">
           <div *ngIf="f['empName'].errors && f['empName'].errors['required']">
             Name is required!
           </div>
@@ -33,7 +33,7 @@
       <div class="form-group col ">
         <label >Mobile </label>
         <input type="tel" class="form-control "name="mobile" formControlName="mobile" id="Mobile" [class.is-invalid]="f['mobile'].invalid && f['mobile'].touched">
-        <div class="alert alert-danger mt-2 " *ngIf="f['mobile'].invalid && f['mobile'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['mobile'].invalid && f['mobile'].touched">
           <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">
             Mobile is required!
           </div>
@@ -51,7 +51,7 @@
           <option value="Female">Female</option>
           <option value="Transgender">Transgender</option>
         </select>
-        <div class="alert alert-danger mt-2 " *ngIf="f['gender'].invalid && f['gender'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['gender'].invalid && f['gender'].touched">
           <div *ngIf="f['gender'].errors && f['gender'].errors['required']">
             Gender is required!
           </div>
@@ -61,7 +61,7 @@
       <div class="form-group col ">
         <label >Date of Join</label>
         <input type="date" class="form-control " name="joinDate" formControlName="joinDate" id="Date-of-join" [class.is-invalid]="f['joinDate'].invalid && f['joinDate'].touched">
-        <div class="alert alert-danger mt-2 " *ngIf="f['joinDate'].invalid && f['joinDate'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['joinDate'].invalid && f['joinDate'].touched">
           <div *ngIf="f['joinDate'].errors && f['joinDate'].errors['required']">
             Joining Date is required!
           </div>
@@ -72,7 +72,7 @@
       <div class="form-group col ">
         <label >Email</label>
         <input type="email" class="form-control "name="email" formControlName="email" id="email" [class.is-invalid]="f['email'].invalid && f['email'].touched">
-        <div class="alert alert-danger mt-2 " *ngIf="f['email'].invalid && f['email'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['email'].invalid && f['email'].touched">
           <div *ngIf="f['email'].errors && f['email'].errors['required']">
             Email is required!
           </div>
@@ -85,7 +85,7 @@
         <div class="form-group col ">
           <label >Salary</label>
          <input type="text" class="form-control " name="salary" formControlName="salary"id="salary" [class.is-invalid]="f['salary'].invalid && f['salary'].touched">
-         <div class="alert alert-danger mt-2 " *ngIf="f['salary'].invalid && f['salary'].touched">
+         <div class="text-danger mt-2 " *ngIf="f['salary'].invalid && f['salary'].touched">
           <div *ngIf="f['salary'].errors && f['salary'].errors['required']">
             Salary is required!
           </div>
@@ -97,20 +97,10 @@
         <label >Password</label>
         <div class="position-relative d-flex">
           <input [type]="changetype?'password':'text'" class="form-control" name="password"  formControlName="password" [class.is-invalid]="f['password'].invalid && f['password'].touched">
-          <a><span class=" " (click)="toggleEye()"> <i [ngClass]="visible?'fa fa-eye':'fa-eye-slash'"></i> </span> 
+          <a class="position-absolute end-0 me-2  mt-2 text-dark "(click)="toggleEye()"> <i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i>
           </a>
         </div>
-        <div class="alert alert-danger mt-2 " *ngIf="f['password'].invalid && f['password'].touched">
-          <div *ngIf="f['password'].errors && f['password'].errors['required']">
-            Password is required!
-          </div>
-        </div>
-      </div>
-      <div class="form-group col ">
-        <label >Password</label>
-        <input [type]="changetype?'password':'text'" class="form-control" name="password"  formControlName="password" [class.is-invalid]="f['password'].invalid && f['password'].touched">
-        <span class="d-flex  justify-content-end  me-3 negative " (click)="toggleEye()"> <i [ngClass]="visible?'fa fa-eye':'fa-eye-slash'"></i> </span> 
-        <div class="alert alert-danger mt-2 " *ngIf="f['password'].invalid && f['password'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['password'].invalid && f['password'].touched">
           <div *ngIf="f['password'].errors && f['password'].errors['required']">
             Password is required!
           </div>
@@ -120,14 +110,19 @@
 
       <div class="form-group col ">
         <label >Confirm Password</label>
-        <input  [type]="changetypeTwo?'password':'text'" class="form-control " name="confirmPass" formControlName="confirmPass" id="Confirm-password" [class.is-invalid]="f['confirmPass'].invalid && f['confirmPass'].touched">
-        <span class="d-flex  justify-content-end  me-3 negative " (click)="toggleEyeTwo()"> <i [ngClass]="visibleTwo?'fa fa-eye':'fa fa-eye-slash'"></i> </span> 
+        <div class="position-relative  d-flex ">
+          <input  [type]="changetypeTwo?'password':'text'" class="form-control " name="confirmPass" formControlName="confirmPass" id="Confirm-password" [class.is-invalid]="f['confirmPass'].invalid && f['confirmPass'].touched">
+          <a class="position-absolute end-0 me-2  mt-2 text-dark " (click)="toggleEyeTwo()"> 
+               <i [ngClass]="visibleTwo?'fa fa-eye':'fa fa-eye-slash'"></i>
+          </a>
+        </div>
       
-        <div class="alert alert-danger mt-2 " *ngIf="f['confirmPass'].invalid && f['confirmPass'].touched">
+        <div class="text-danger mt-2 " *ngIf="f['confirmPass'].invalid && f['confirmPass'].touched">
           <div *ngIf="f['confirmPass'].errors && f['confirmPass'].errors['required']">
           Confirm Password is required!
           </div>
         </div>
+        <div class="text-danger mt-2 " *ngIf="f.errors?.['passwordMismatchError'] && f['confirmPass'].touched "> <small class=" ">Password did't match</small> </div>
       </div>
     </div> 
       

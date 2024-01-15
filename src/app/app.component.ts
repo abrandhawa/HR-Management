@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmplooyeDataService } from './Services/emplooye-data.service';
 import {empVM} from '../Models/Models';
+import { passwordMatch } from '../Validators/PasswordMatch';
 
 
 
@@ -13,7 +14,7 @@ import {empVM} from '../Models/Models';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,ReactiveFormsModule,NgClass],
+  imports: [CommonModule,RouterOutlet,ReactiveFormsModule,NgClass,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -62,7 +63,7 @@ toggleEye(){
       confirmPass: ["", Validators.required],
       empStatus: [false, Validators.requiredTrue]
       
-    })
+    },[passwordMatch('password','confirmPass')])
   }
 
   formSubmit(){
