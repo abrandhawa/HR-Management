@@ -1,28 +1,23 @@
-import { Component } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { EmplooyeDataService } from './Services/emplooye-data.service';
-import {empVM} from '../Models/Models';
-import { passwordMatch } from '../Validators/PasswordMatch';
-import { HeaderComponent } from "./header/header.component";
-import { EmplooyesRecordComponent } from "./emplooyes-record/emplooyes-record.component";
-
-
-
-
+import { EmplooyeDataService } from '../Services/emplooye-data.service'; 
+import { empVM } from '../../Models/Models';
+import { passwordMatch } from '../../Validators/PasswordMatch'; 
 
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, ReactiveFormsModule, NgClass, HeaderComponent, EmplooyesRecordComponent,RouterModule]
+  selector: 'app-new-emplooye',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, ReactiveFormsModule, NgClass, HeaderComponent],
+  templateUrl: './new-emplooye.component.html',
+  styleUrl: './new-emplooye.component.css'
 })
-export class AppComponent {
-  title = 'HR-Managment';
-visible:boolean=true;
+export class NewEmplooyeComponent {
+
+  visible:boolean=true;
 changetype:boolean=true;
 
 visibleTwo:boolean=true;
@@ -41,8 +36,8 @@ toggleEye(){
 
   emplooyeForm: FormGroup = new FormGroup({});
   
-    users:empVM[];
-   constructor( private _fb: FormBuilder, private empData:EmplooyeDataService){
+  users:empVM[];
+   constructor( private _fb: FormBuilder,private empData:EmplooyeDataService ){
     this.users=empData.emplooyes();
     
   }
@@ -85,5 +80,4 @@ toggleEye(){
     this.emplooyeForm.reset();
   }
 
-  
 }
