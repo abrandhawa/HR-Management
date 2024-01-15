@@ -7,6 +7,7 @@ import {empVM} from '../Models/Models';
 import { passwordMatch } from '../Validators/PasswordMatch';
 import { HeaderComponent } from "./header/header.component";
 import { EmplooyesRecordComponent } from "./emplooyes-record/emplooyes-record.component";
+import { FooterComponent } from "./footer/footer.component";
 
 
 
@@ -18,7 +19,7 @@ import { EmplooyesRecordComponent } from "./emplooyes-record/emplooyes-record.co
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, ReactiveFormsModule, NgClass, HeaderComponent, EmplooyesRecordComponent,RouterModule]
+    imports: [CommonModule, RouterOutlet, ReactiveFormsModule, NgClass, HeaderComponent, EmplooyesRecordComponent, RouterModule, FooterComponent]
 })
 export class AppComponent {
   title = 'HR-Managment';

@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card  ">
     <div class="card-header bg-info "><h6>Employ Registration</h6></div>
     <div class="card-body">
       <form [formGroup]="emplooyeForm" (ngSubmit)="formSubmit()">
@@ -143,8 +143,8 @@
         <div class="row">
           <div class="form-group text-center ">
             <button type="submit" [class.disabled]="emplooyeForm.invalid" class="btn btn-success me-2  ">Save</button>
-            <button type="button" class="btn btn-warning me-2" (click)="resetBtn()">Reset</button>
-            <button type="button"  class="btn btn-danger" (click)="cancelBtn()">Cancel</button>
+            <button type="button" class="btn btn-warning me-2  " (click)="resetBtn()">Reset</button>
+            <button type="button"  class="btn btn-danger " (click)="cancelBtn()">Cancel</button>
           </div>
         </div>
       </form>
