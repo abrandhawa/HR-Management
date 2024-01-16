@@ -1,0 +1,17 @@
+.p-img{
+background-image: url(../../assets/images/meeting-pic.jpg);
+min-height: 762px;
+position: relative;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+.data-home{
+    position: absolute;
+    top: 25%;
+}
+.data-home-2{
+    position: absolute;
+    top: 60%;
+}
