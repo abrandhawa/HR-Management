@@ -21,6 +21,12 @@ export class EmplooyesRecordComponent {
     this.users=empData.emplooyes();
   }
 
+  Edit(Id:number){
+ alert(Id)
+  }
+Delete(Id:number){
+  alert(Id)
+}
   
 
 }
